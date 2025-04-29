@@ -2,30 +2,21 @@ import argparse
 from errors import OptionsError
 
 
-def get_options(args):
-    """Получение и проверка параметров командной строки."""
-    logs = args.logs
-    if not logs:
-        raise OptionsError()
-    logs = logs.split(' ')
-    
-    report_name = args.report
-    if not report_name:
-        report_name = 'handlers.txt'
-    return logs, report_name
-
-
 def main():
     """Главная функция."""
     parser = argparse.ArgumentParser(
         description='Отчёт о логах.'
     )
-    parser.add_argument('logs', help='Пути к файлам логов')
+    parser.add_argument('logs',
+                        nargs='+',  # 1 или более файлов.
+                        type=argparse.FileType('r'),  # Открыть файлы.
+                        help='Пути к файлам логов')
     parser.add_argument('-report',
                         default='handlers.txt',
                         help='Название отчёта (по умолчанию %(default)s)')  
     args = parser.parse_args()
-    logs, report_name = get_options(args)
+    logs = args.logs
+    report_name = args.report
 
 
 if __name__ == '__main__':
