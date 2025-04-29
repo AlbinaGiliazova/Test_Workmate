@@ -20,15 +20,12 @@ def main():
     parser = argparse.ArgumentParser(
         description='Отчёт о логах.'
     )
-    parser.add_argument('logs', help='пути к файлам логов')
+    parser.add_argument('logs', help='Пути к файлам логов')
     parser.add_argument('-report',
                         default='handlers.txt',
-                        help='название отчёта (по умолчанию %(default)s)')  
+                        help='Название отчёта (по умолчанию %(default)s)')  
     args = parser.parse_args()
     logs, report_name = get_options(args)
-    
-
-
 
 
 if __name__ == '__main__':
