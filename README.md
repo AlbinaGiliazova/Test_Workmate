@@ -4,7 +4,7 @@
 
 Для запуска:
 
-./main.py logs/app1.log logs/app2.log --report handlers
+python main.py logs/app1.log logs/app2.log --report handlers
 
 Для запуска тестов:
 
