@@ -1,2 +1,11 @@
-# Test_Workmate
-Test task for Workmate
+Консольное приложение для анализа логов
+
+Собирает данные по django.request и считает, сколько было запросов к каким адресам и на каком уровне. Функциональность покрыта тестми.
+
+Для запуска:
+
+./main.py logs/app1.log logs/app2.log --report handlers
+
+Для запуска тестов:
+
+pytest
